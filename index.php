@@ -48,28 +48,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Hotel</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- /Bootstrap -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div>
+    <h1 class="text-center">HOTELS</h1>
+    <section class="container d-flex flex-wrap">
         <?php foreach($hotels as $index => $hotel) { ?>
-            <h3>Hotel N°: <?php echo $index + 1 ?></h3>
-            <ul>
-                <?php foreach($hotel as $key => $value) {
-                    if ( $key === 'parking' ) {
-                        if ( $value ) {
-                            $value = "Yes";
-                        } else {
-                            $value = "No";                            
-                        }     
-                    }
-                    if ( $key === 'distance_to_center' ) {
-                        $key = 'distance to center';
-                        $value .= 'km';
-                    }
-                    echo "<li>$key:  $value</li>";
-                 } ?>
-            </ul>
+            <table class="hotels table table-striped border-right border-left">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Hotel N° <?php echo $index + 1 ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($hotel as $key => $value) { 
+                        if ( $key === 'parking' ) {
+                            if ( $value ) {
+                                $value = "Yes";
+                            } else {
+                                $value = "No";                            
+                            }     
+                        }
+                        if ( $key === 'distance_to_center' ) {
+                            $key = 'distance to center';
+                            $value .= 'km';
+                        }                    
+                    ?>
+                    <tr>
+                        <th scope="row"><?php echo $key ?></th>
+                        <td><?php echo $value ?></td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         <?php } ?>
-    </div>
+    </section>
 </body>
 </html>

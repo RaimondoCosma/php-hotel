@@ -1,0 +1,4 @@
+.hotels {
+  width: calc(33.33% - 1.25rem);
+  margin: 0 0.625rem 1.875rem;
+}
