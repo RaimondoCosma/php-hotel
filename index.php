@@ -67,7 +67,6 @@
     <h1 class="text-center">HOTELS</h1>
     <section class="container d-flex flex-wrap">
         <?php foreach($hotels as $index => $hotel) { ?>
-            <?php if( $parking ) { ?>
                 <table class="hotels table table-striped border-right border-left">
                     <thead>
                         <tr>
@@ -92,33 +91,6 @@
                         <?php } ?>
                     </tbody>
                 </table>
-            <?php } ?>
-            <?php if( !$parking ) { ?>
-                <table class="hotels table table-striped border-right border-left">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Hotel N° <?php echo $index + 1 ?></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($hotel as $key => $value) { 
-                            if ( ($key === 'parking') ) {
-                                $value = $value ? "Yes" : "No";  
-                            }
-                            if ( $key === 'distance_to_center' ) {
-                                $key = 'distance to center';
-                                $value .= 'km';
-                            }                    
-                        ?>
-                        <tr>
-                            <th scope="row"><?php echo $key ?></th>
-                            <td><?php echo $value ?></td>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            <?php } ?>
         <?php } ?>
     </section>
 </body>
