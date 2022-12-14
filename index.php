@@ -67,12 +67,8 @@
                 </thead>
                 <tbody>
                     <?php foreach($hotel as $key => $value) { 
-                        if ( $key === 'parking' ) {
-                            if ( $value ) {
-                                $value = "Yes";
-                            } else {
-                                $value = "No";                            
-                            }     
+                        if ( ($key === 'parking') ) {
+                            $value = $value ? "Yes" : "No";  
                         }
                         if ( $key === 'distance_to_center' ) {
                             $key = 'distance to center';
