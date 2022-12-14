@@ -55,6 +55,13 @@
             <h3>Hotel N°: <?php echo $index + 1 ?></h3>
             <ul>
                 <?php foreach($hotel as $key => $value) {
+                    if ( $key == 'parking' ) {
+                        if ( $value ) {
+                            $value = "Yes";
+                        } else {
+                            $value = "No";                            
+                        }     
+                    }
                     echo "<li>$key:  $value</li>";
                  } ?>
             </ul>
