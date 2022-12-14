@@ -50,6 +50,15 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    
+    <div>
+        <?php foreach($hotels as $index => $hotel) { ?>
+            <h3>Hotel N°: <?php echo $index + 1 ?></h3>
+            <ul>
+                <?php foreach($hotel as $key => $value) {
+                    echo "<li>$key:  $value</li>";
+                 } ?>
+            </ul>
+        <?php } ?>
+    </div>
 </body>
 </html>
